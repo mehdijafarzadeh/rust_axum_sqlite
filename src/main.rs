@@ -1,6 +1,6 @@
 use axum::{
+    routing::{get, post, put, Router},
     Extension,
-    routing::{Router, get, post},
 };
 use dotenvy::dotenv;
 use std::net::SocketAddr;
@@ -23,8 +23,9 @@ async fn main() {
     };
 
     let app = Router::new()
-        .route("/api/items", post(api::create_item))
-        .route("/api/items", get(api::get_items))
+        .route("/items", post(api::create_item))
+        .route("/items/{id}", put(api::update_item))
+        .route("/items", get(api::get_items))
         .layer(Extension(pool));
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 8000));
