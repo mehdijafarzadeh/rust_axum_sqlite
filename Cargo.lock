@@ -1230,6 +1230,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "rust_axum_sqlite"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "dotenvy",
+ "env_logger",
+ "serde",
+ "sqlx",
+ "thiserror",
+ "tokio",
+ "tower-http",
+]
+
+[[package]]
 name = "rustc-demangle"
 version = "0.1.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1727,20 +1741,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "thiserror-vs-anyhow"
-version = "0.1.0"
-dependencies = [
- "axum",
- "dotenvy",
- "env_logger",
- "serde",
- "sqlx",
- "thiserror",
- "tokio",
- "tower-http",
 ]
 
 [[package]]
