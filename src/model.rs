@@ -17,4 +17,19 @@ pub struct UpdateItem {
     pub name: String,
 }
 
-
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct Word {
+    pub id: i32,
+    pub word: String,
+    pub definition: String,
+}
+// #[derive(Deserialize)]
+// pub struct NewWord {
+//     pub word: String,
+//     pub definition: String,
+// }
+#[derive(Deserialize, Debug, Serialize)]
+pub struct UpdateWord {
+    pub word: String,
+    pub definition: String,
+}

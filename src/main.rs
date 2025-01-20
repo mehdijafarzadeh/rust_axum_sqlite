@@ -1,3 +1,4 @@
+use api::update_word;
 use axum::{
     routing::{get, post, put, Router},
     Extension,
@@ -26,9 +27,11 @@ async fn main() {
         .route("/items", post(api::create_item))
         .route("/items/{id}", put(api::update_item))
         .route("/items", get(api::get_items))
+        .route("/words", get(api::get_words))
+        .route("/word/{:id}", put(update_word))
         .layer(Extension(pool));
 
-    let addr = SocketAddr::from(([0, 0, 0, 0], 8000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 8001));
     let listener = net::TcpListener::bind(addr).await.unwrap();
     println!("Listening on {}", addr);
     axum::serve(listener, app.into_make_service())
